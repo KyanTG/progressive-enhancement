@@ -18,7 +18,6 @@
 					width: fit-content;
 					background-color: red;
 
-					summary {}
 
 					article {
 						color: white;
@@ -26,6 +25,22 @@
 						background-color: red;
 					}
 					
+				}
+			}
+
+			@supports (::marker) and (::-webkit-details-marker) {
+
+				details:nth-of-type(1) summary::marker,:is(::-webkit-details-marker) {
+
+					content:"+ ";
+					color:white;
+				}
+			}
+			
+			@supports (::marker) and ([open]) {
+				details[open]:first-of-type summary::marker {
+
+  					content: "- ";
 				}
 			}
 
@@ -75,11 +90,11 @@
 
 
 		<!-- Hint: Dit stukje HTML geeft het misschien al weg :) -->
-		<!-- <details open>
+		<details open>
 			<summary>Demo video</summary>
 			<video src="assets/faq.mp4" width="765" height="769" controls muted autoplay loop>
 				<a href="assets/faq.mp4">assets/faq.mp4</a>
 			</video>
-		</details> -->
+		</details>
 	</body>
 </html>
