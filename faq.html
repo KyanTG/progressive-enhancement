@@ -28,21 +28,22 @@
 				}
 			}
 
-			@supports (::marker) and (::-webkit-details-marker) {
+			/* @supports selector(::marker) (details[open]){ */
 
-				details:nth-of-type(1) summary::marker,:is(::-webkit-details-marker) {
+			@supports selector(::marker) {
 
-					content:"+ ";
+				summary::marker{
+					content:" + ";
 					color:white;
 				}
-			}
-			
-			@supports (::marker) and ([open]) {
-				details[open]:first-of-type summary::marker {
 
-  					content: "- ";
+				details[open] summary::marker {
+					content: " - ";
+					color: white;
+					/* transform: rotate(30deg); */
 				}
 			}
+
 
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
